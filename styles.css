@@ -1,0 +1,95 @@
+.salesNumbers {
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    justify-content: space-between;
+    background-color: orange;
+}
+
+.soldValue {
+    margin-left: 50px;
+    border: 1px solid green;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: lightgreen;
+}
+
+.tvSales {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: yellow;
+}
+
+.revenue {
+    margin-right: 50px;
+    border: 1px solid blue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: lightblue;
+}
+
+#revenue {
+    color: blue;
+}
+
+
+#soldValue {
+    color: green;
+}
+
+.televisions {
+    display: flex;
+}
+
+#buttons {
+    display: flex;
+}
+
+form {
+    margin: 5px;
+}
+
+
+#tvTypes1 {
+    margin-top: 50px;
+    display: flex;
+    align-content: space-between;
+    justify-content: space-around;
+    flex: 1 1 250px;
+}
+
+#tvTypes2 {
+    margin-top: 50px;
+    display: flex;
+    align-content: space-between;
+    justify-content: space-around;
+    flex: 1 1 250px;
+}
+
+.tvType0, .tvType1, .tvType2,
+.tvType3 {
+border: 1px solid black;
+display: inline-flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: lightblue;
+    align-items: center;
+    margin: 5px;
+    flex: 1 1 250px;
+}
+
+
+.tvType4, .tvType5, .tvType6, .tvType7 {
+    border: 1px solid black;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: lightblue;
+    align-items: center;
+    margin: 5px;
+    flex: 1 1 250px;
+}
