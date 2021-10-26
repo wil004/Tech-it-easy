@@ -195,11 +195,18 @@ const inventory = [
 
 //Opdracht 2a: Gebruik een array-methode om een array te maken met alle tv-type namen.
 
-    let allTvTypes = [];
-    inventory.forEach(item => {
-        allTvTypes.push(item.type);
-    });
-    // console.log(allTvTypes);
+    // 2 ways of printing all tv types
+// way number 1
+
+let allTvTypes = [];
+inventory.forEach(item => {
+    allTvTypes.push(item.type);
+});
+
+// way number 2
+const allTvTypes1 = inventory.map(item => {
+    return item.type
+})
 
 //Opdracht 2b: Gebruik een array-methode om alle tv's te verzamelen (de hele objecten) die volledig uitverkocht zijn.
 
