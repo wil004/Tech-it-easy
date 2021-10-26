@@ -314,12 +314,12 @@ const soldOutTelevisions = (array) => {
 // daar de volgende string van maakt: €379,-. Zorg ervoor dat je deze functie
 // voor iedere tv zou kunnen gebruiken.
 
-        function tvPrice(inventory) {
-            let price = inventory.price;
-            return price
-        }
+       function tvPrice(priceNumber) {
+    let price = '€' + priceNumber + ",-";
+    return price
+}
 
-        let tvPrice1 = ('€') + tvPrice(inventory[3]) + (",-");
+// console.log(tvPrice(inventory[2].price))
 
 
 //Opdracht 5c: Zorg ervoor dat er een string wordt gegenereerd voor alle beschikbare
