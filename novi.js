@@ -188,7 +188,7 @@ const inventory = [
     let total = 0;
 
     inventory.forEach(item => {
-        total += item.originalStock - item.sold;
+        total = item.originalStock - item.sold + total;
 
     });
 
@@ -211,72 +211,88 @@ const inventory = [
     });
 // console.log(soldOut)
 
+const soldOutTelevisions = (array) => {
+    let soldOutTv = 'Deze televisies zijn helaas uitverkocht: <br><br>';
+    for (let i = 0; i < array.length; i++) {
+        soldOutTv = soldOutTv + '-' + array[i] + '<br><br>';
+    }
+    return soldOutTv
+}
 //Opdracht 2c: Gebruik een array-methode om alle tv's te verzamelen (de hele objecten) die over AmbiLight beschikken.
 
 
-let ambiLight = [];
-inventory.forEach(item => {
-    if ((item.options.ambiLight) === true) {
-        ambiLight.push(item);
-    }
-});
+        const ambiLight = inventory.filter(item => {
+            return item.options.ambiLight;
+        });
 
+
+// Een functie om een uitklapbare button te maken.
+
+        const ambiLightOption = (array) => {
+            let ambiLight1 = '';
+            for (let i = 0; i < array.length; i++) {
+                ambiLight1 = array[i].brand + ' ' + array[i].type + array[i].name + "<br>" + '€' + array[i].price + ",- <br>"
+                    + "Television has ambiLight:" + ' ' + array[i].options.ambiLight + "<br><br><br>" + ambiLight1;
+            }
+            return ambiLight1
+        }
+
+        console.log(ambiLightOption(ambiLight));
 
 
 //Opdracht 2d: Schrijf een functie die alle tv's van laagste naar hoogste prijs sorteert.
 
-    let sorteer1 = (a, b) => {
-        return a.price - b.price;
-    }
-
-    const sorted = (array) => {
-        inventory.sort(sorteer1);
-        let sortedInventory = [];
-        for (let i = 0; i < array.length; i++) {
-            sortedInventory = array[i].brand + ' ' + array[i].type + array[i].name + "<br>" +'€' + array[i].price + ",- <br><br>"
-            + sortedInventory;
+        let sorteer1 = (a, b) => {
+            return a.price - b.price;
         }
-    return sortedInventory;
-};
 
+// Een functie om een uitklapbare button te maken.
 
+        const sorted = (array) => {
+            inventory.sort(sorteer1);
+            let sortedInventory = '';
+            for (let i = 0; i < array.length; i++) {
+                sortedInventory = array[i].brand + ' ' + array[i].type + array[i].name + "<br>" + '€' + array[i].price + ",- <br><br>"
+                    + sortedInventory;
+            }
+            return sortedInventory;
+        };
 
 
 //Opdracht 3a: Wat is onze doel-opbrengst? Bereken wat de totale opbrengst is, als we alle exemplaren van ieder
 // type zouden verkopen. Geef dit in het blauw weer op de pagina.
 
-function priceStock(inventory = []) {
-    let totalRevenue = 0;
-    for (let i = 0; i < inventory.length; i++) {
-        totalRevenue = (inventory[i].originalStock - inventory[i].sold) * inventory[i].price + totalRevenue;
-    }
-    return totalRevenue
-}
+        function priceStock(inventory = []) {
+            let totalRevenue = 0;
+            for (let i = 0; i < inventory.length; i++) {
+                totalRevenue = (inventory[i].originalStock - inventory[i].sold) * inventory[i].price + totalRevenue;
+            }
+            return totalRevenue
+        }
 
-let revenue = priceStock(inventory);
-
+        let revenue = priceStock(inventory);
 
 
 //Opdracht 6b: Hoeveel hebben we tot nu toe verdient? Bereken hoeveel we tot nu toe verdient
 // hebben met het aantal verkochte tv's. Geef dit weer in het groen weer op de pagina
 
-    let soldValue = 0;
+        let soldValue = 0;
 
-    inventory.forEach(item => {
-        soldValue = (item.sold * item.price) + soldValue;
-    });
+        inventory.forEach(item => {
+            soldValue = (item.sold * item.price) + soldValue;
+        });
 
 //Opdracht 4
 //Geef de type-namen van twee tv's weer op de pagina. Welke tv's dat precies zijn,
 // maakt niet zoveel uit. Voor nu betekent dit dat je het appenden van de nodes twee keer
 // moet uitschrijven, dat is niet erg!
 
-    function TypeTwo(array) {
-        let type = array.type;
-        return type
-    }
+        function TypeTwo(array) {
+            let type = array.type;
+            return type
+        }
 
-    const TypeTwo2 = TypeTwo(inventory[2]) +(TypeTwo(inventory[4]));
+        const TypeTwo2 = TypeTwo(inventory[2]) + (TypeTwo(inventory[4]));
 
 
 //Opdracht 5a: Zorg ervoor dat er een string wordt gegenereerd voor de naam van een tv.
@@ -285,15 +301,14 @@ let revenue = priceStock(inventory);
 // NH3216SMART - HD smart TV. Zorg ervoor dat je deze functie voor iedere tv zou kunnen
 // gebruiken.
 
-    function tvType(object) {
-        let brand = object.brand;
-        let type = object.type;
-        let name1 = object.name;
-        return brand + ': ' + type + ': ' + name1
-    }
+        function tvType(object) {
+            let brand = object.brand;
+            let type = object.type;
+            let name1 = object.name;
+            return brand + ': ' + type + ': ' + name1
+        }
 
-    const tvType1 = tvType(inventory[2]) + (tvType(inventory[4]));
-
+        const tvType1 = tvType(inventory[2]) + (tvType(inventory[4]));
 
 
 //Opdracht 5b: Zorg ervoor dat de prijs van een tv netjes geformat wordt.
@@ -301,13 +316,12 @@ let revenue = priceStock(inventory);
 // daar de volgende string van maakt: €379,-. Zorg ervoor dat je deze functie
 // voor iedere tv zou kunnen gebruiken.
 
-    function tvPrice(inventory) {
-        let price = inventory.price;
-        return price
-    }
+        function tvPrice(inventory) {
+            let price = inventory.price;
+            return price
+        }
 
-    let tvPrice1 = ('€') + tvPrice(inventory[3]) + (",-");
-
+        let tvPrice1 = ('€') + tvPrice(inventory[3]) + (",-");
 
 
 //Opdracht 5c: Zorg ervoor dat er een string wordt gegenereerd voor alle beschikbare
@@ -320,57 +334,64 @@ let revenue = priceStock(inventory);
 // als met tientallen schermgroottes.
 
 
-let availableSizes = (inventory, index) => {
-    let allSizes = []
-    let sizesPerObject = []
-    for (let i = 0; i < inventory.length; i++) {
-        for (let j = 0; j < inventory[i].availableSizes.length; j++) {
-                sizesPerObject.push((inventory[i].availableSizes[j]) + ' inch ' +
-                    '(' + (inventory[i].availableSizes[j] * 2.54) + ' cm)');
-                if (j === inventory[i].availableSizes.length - 1) {
-                    allSizes.push(sizesPerObject);
-                    sizesPerObject = [];
+        let availableSizes = (inventory, index) => {
+            let allSizes = []
+            let sizesPerObject = []
+            for (let i = 0; i < inventory.length; i++) {
+                for (let j = 0; j < inventory[i].availableSizes.length; j++) {
+                    sizesPerObject.push((inventory[i].availableSizes[j]) + ' inch ' +
+                        '(' + (inventory[i].availableSizes[j] * 2.54) + ' cm)');
+                    if (j === inventory[i].availableSizes.length - 1) {
+                        allSizes.push(sizesPerObject);
+                        sizesPerObject = [];
+                    }
                 }
+            }
+            if (index || index === 0) {
+                return allSizes[index]
+            } else {
+                return allSizes
+            }
         }
-    }
-    if (index || index === 0) {
-        return allSizes[index]
-    }
-    else {
-        return allSizes
-    }
-}
 
 
-/* The array parameter most be declared with the 'inventory' array of existing out of objects.
- the index parameter is optional! In this parameter you declare the index of the array to get a specified product!
- */
-const printTv = (array, index) => {
-    //empty array to put our product details in!
-    let tvSets = [];
-    //change the value of the before declared arrays with the help of 2 loops!
+        /* The array parameter most be declared with the 'inventory' array of existing out of objects.
+         the index parameter is optional! In this parameter you declare the index of the array to get a specified product!
+         */
+        const printTv = (array, index) => {
+            //empty array to put our product details in!
+            let tvSets = [];
+            //change the value of the before declared arrays with the help of 2 loops!
 
-    for (let i = 0; i < array.length; i++) {
-        tvSets[i] = array[i].brand + ' ' + array[i].type + array[i].name + "<br>" +'€' + array[i].price + ",- <br><br>";
+            for (let i = 0; i < array.length; i++) {
+                tvSets[i] = array[i].brand + ' ' + array[i].type + array[i].name + "<br>" + '€' + array[i].price + ",- <br><br>";
 
+            }
+            //if there is an index number declared we return the specified array with the if statement below.
+
+            if (index || index === 0) {
+                return tvSets[index]
+            }
+            // if not we return everything in stock.
+            else {
+
+                return tvSets.join(' ')
+
+            }
         }
-        //if there is an index number declared we return the specified array with the if statement below.
-
-    if (index || index === 0) {
-        return tvSets[index]
-    }
-    // if not we return everything in stock.
-    else {
-
-            return tvSets.join(' ')
-
-    }
-}
 
 
 
-        function myFunction() {
+       function sortFunction() {
             document.getElementById("sort").innerHTML = sorted(inventory);
+        }
+
+        function ambiLightFunction() {
+            document.getElementById("ambilight").innerHTML = ambiLightOption(ambiLight);
+        }
+
+        function soldOutFunction() {
+            document.getElementById("soldOut").innerHTML = soldOutTelevisions(soldOut);
         }
 
 

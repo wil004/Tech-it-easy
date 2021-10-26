@@ -43,7 +43,38 @@
 
 .televisions {
     display: flex;
+    border: 1px solid black;
+    justify-content: space-around;
+    background-color: lightyellow;
 }
+
+.flexbox, .flexbox button {
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    background-color: lightyellow;
+}
+
+#printTelevisions {
+    background-color: lightblue;
+}
+
+p {
+    font-size: 16px;
+}
+
+.sortedTelevisions p {
+    background-color: lightgreen;
+}
+
+.ambilight p{
+    background-color: yellow;
+}
+
+.soldOut p{
+    background-color: red;
+}
+
 
 #buttons {
     display: flex;
