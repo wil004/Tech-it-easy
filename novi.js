@@ -172,26 +172,15 @@ const inventory = [
 
 
 
-// console.log(totalrevenue);
 
-    function tvType(object) {
-        let brand = object.brand;
-        let type = object.type;
-        let name1 = object.name;
-        return brand + ', ' + type + ', ' + name1
-    }
 
-    const tvType2 = tvType(inventory[2]) + ' ' + tvType(inventory[4]);
 
 // Opdracht 1a: Hoeveel exemplaren moeten we nog verkopen? Schrijf een functie die dit berekent.
 
     let total = 0;
-
     inventory.forEach(item => {
-        total += item.originalStock - item.sold;
-
+        total = item.originalStock - item.sold + total;
     });
-
 
 //Opdracht 2a: Gebruik een array-methode om een array te maken met alle tv-type namen.
 
@@ -209,19 +198,42 @@ const inventory = [
             soldOut.push(item.type);
         }
     });
-// console.log(soldOut)
+ console.log(soldOut)
+
+
+// Een functie om een uitklapbare button te maken.
+
+const soldOutTelevisions = (array) => {
+    let soldOutTv = 'Deze televisies zijn helaas uitverkocht: <br><br>';
+    for (let i = 0; i < array.length; i++) {
+        soldOutTv = soldOutTv + '-' + array[i] + '<br><br>';
+    }
+    return soldOutTv
+}
+
+
 
 //Opdracht 2c: Gebruik een array-methode om alle tv's te verzamelen (de hele objecten) die over AmbiLight beschikken.
 
 
-let ambiLight = [];
-inventory.forEach(item => {
-    if ((item.options.ambiLight) === true) {
-        ambiLight.push(item);
-    }
+
+const ambiLight = inventory.filter(item => {
+    return item.options.ambiLight;
 });
 
 
+// Een functie om een uitklapbare button te maken.
+
+const ambiLightOption = (array) => {
+    let ambiLight1 = '';
+    for (let i = 0; i < array.length; i++) {
+        ambiLight1 = array[i].brand + ' ' + array[i].type + array[i].name + "<br>" +'€' + array[i].price + ",- <br>"
+            + "Television has ambiLight:" + ' ' + array[i].options.ambiLight + "<br><br><br>" + ambiLight1;
+    }
+    return ambiLight1
+}
+
+console.log(ambiLightOption(ambiLight))
 
 //Opdracht 2d: Schrijf een functie die alle tv's van laagste naar hoogste prijs sorteert.
 
@@ -229,9 +241,11 @@ inventory.forEach(item => {
         return a.price - b.price;
     }
 
+// Een functie om een uitklapbare button te maken.
+
     const sorted = (array) => {
         inventory.sort(sorteer1);
-        let sortedInventory = [];
+        let sortedInventory = '';
         for (let i = 0; i < array.length; i++) {
             sortedInventory = array[i].brand + ' ' + array[i].type + array[i].name + "<br>" +'€' + array[i].price + ",- <br><br>"
             + sortedInventory;
@@ -369,10 +383,17 @@ const printTv = (array, index) => {
 
 
 
-        function myFunction() {
+        function sortFunction() {
             document.getElementById("sort").innerHTML = sorted(inventory);
         }
 
+        function ambiLightFunction() {
+    document.getElementById("ambilight").innerHTML = ambiLightOption(ambiLight);
+        }
+
+        function soldOutFunction() {
+    document.getElementById("soldOut").innerHTML = soldOutTelevisions(soldOut);
+        }
 
 
 const revenueHtml = document.getElementById('revenue');

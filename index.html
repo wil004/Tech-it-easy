@@ -26,17 +26,35 @@
 </div>
 
 <div class="televisions">
-<div id="printTelevisions">
+    <div class="flexbox">
+        <h2>Assortiment</h2>
+<div class="printTelevisions">
+    <p id="printTelevisions"></p>
 </div>
+    </div>
 
 
-<div>
+    <div class="flexbox">
+        <h2>Gesorteerd!</h2>
+<div class="sortedTelevisions">
     <p id="sort"></p>
-    <button class="text" onclick="myFunction()" >Sorteer de prijs!</button>
+    <button class="text" onclick="sortFunction()" >Sorteer de prijs!</button>
 </div>
-    <form>
-        <input type="button" value="default" id="default" />
-    </form>
+        </div>
+    <div class="flexbox">
+        <h2>AmbiLight!</h2>
+    <div class="ambilight">
+        <p id="ambilight"></p>
+        <button class="text" onclick="ambiLightFunction()">Tv's met ambilight</button>
+    </div>
+        </div>
+    <div class="flexbox">
+        <h2>Sold Out!</h2>
+        <div class="soldOut">
+            <p id="soldOut"></p>
+            <button class="text" onclick="soldOutFunction()">Sold out televisions!</button>
+        </div>
+    </div>
 </div>
 
 
@@ -121,6 +139,10 @@
             </select>
         </div>
     </div>
+
+<footer>
+    <h4>Website made by William Meester</h4>
+</footer>
 
 </body>
 <script src="novi.js" ></script>

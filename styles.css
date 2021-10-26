@@ -1,3 +1,7 @@
+body {
+    background-color: lightcyan;
+}
+
 .salesNumbers {
     display: flex;
     align-items: center;
@@ -43,6 +47,37 @@
 
 .televisions {
     display: flex;
+    border: 1px solid black;
+    justify-content: space-around;
+    align-items: start;
+    background-color: lightyellow;
+}
+
+.flexbox {
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+}
+
+#printTelevisions {
+   background-color: lightblue;
+}
+
+p {
+    font-size: 16px;
+}
+
+.sortedTelevisions p {
+    margin-top:  0px;
+    background-color: lightgreen;
+}
+
+.ambilight {
+    background-color: yellow;
+}
+
+.soldOut {
+    background-color: red;
 }
 
 #buttons {
@@ -79,7 +114,8 @@ display: inline-flex;
     background-color: lightblue;
     align-items: center;
     margin: 5px;
-    flex: 1 1 250px;
+    flex: 1 1 200px;
+    flex-wrap: wrap;
 }
 
 
