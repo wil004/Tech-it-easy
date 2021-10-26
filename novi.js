@@ -203,21 +203,19 @@ const inventory = [
 
 //Opdracht 2b: Gebruik een array-methode om alle tv's te verzamelen (de hele objecten) die volledig uitverkocht zijn.
 
-    let soldOut = [];
-    inventory.forEach(item => {
-        if ((item.originalStock - item.sold) === 0) {
-            soldOut.push(item.type);
-        }
-    });
-// console.log(soldOut)
+   const soldOut = inventory.filter((item) => {
+    return item.originalStock === item.sold
+})
+ // console.log(soldOut)
 
 const soldOutTelevisions = (array) => {
     let soldOutTv = 'Deze televisies zijn helaas uitverkocht: <br><br>';
     for (let i = 0; i < array.length; i++) {
-        soldOutTv = soldOutTv + '-' + array[i] + '<br><br>';
+        soldOutTv = soldOutTv + '-' + array[i].name + ': ' + array[i].type + '<br><br>';
     }
     return soldOutTv
 }
+
 //Opdracht 2c: Gebruik een array-methode om alle tv's te verzamelen (de hele objecten) die over AmbiLight beschikken.
 
 
