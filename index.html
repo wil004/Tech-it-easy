@@ -26,18 +26,38 @@
 </div>
 
 <div class="televisions">
-<div id="printTelevisions">
-</div>
+    <div class="flexbox">
+        <h2>Assortiment</h2>
+        <div class="printTelevisions">
+            <p id="printTelevisions"></p>
+        </div>
+    </div>
 
 
-<div>
-    <p id="sort"></p>
-    <button class="text" onclick="myFunction()" >Sorteer de prijs!</button>
+    <div class="flexbox">
+        <h2>Sorteer de prijs!</h2>
+        <div class="sortedTelevisions">
+            <p id="sort"></p>
+            <button class="text" onclick="sortFunction()" >Sorteer de prijs!</button>
+        </div>
+    </div>
+
+    <div class="flexbox">
+            <h2>AmbiLight!</h2>
+        <div class="ambilight">
+            <p id="ambilight"></p>
+            <button class="text" onclick="ambiLightFunction()">Tv's met ambilight</button>
+        </div>
+    </div>
+    <div class="flexbox">
+        <h2>Sold Out!</h2>
+        <div class="soldOut">
+        <p id="soldOut"></p>
+        <button class="text" onclick="soldOutFunction()">Sold out televisions!</button>
+        </div>
+    </div>
 </div>
-    <form>
-        <input type="button" value="default" id="default" />
-    </form>
-</div>
+
 
 
 
