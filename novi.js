@@ -167,22 +167,6 @@ const inventory = [
 
 
 
-
-
-
-
-
-// console.log(totalrevenue);
-
-    function tvType(object) {
-        let brand = object.brand;
-        let type = object.type;
-        let name1 = object.name;
-        return brand + ', ' + type + ', ' + name1
-    }
-
-    const tvType2 = tvType(inventory[2]) + ' ' + tvType(inventory[4]);
-
 // Opdracht 1a: Hoeveel exemplaren moeten we nog verkopen? Schrijf een functie die dit berekent.
 
     let total = 0;
