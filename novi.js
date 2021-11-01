@@ -167,22 +167,6 @@ const inventory = [
 
 
 
-
-
-
-
-
-// console.log(totalrevenue);
-
-    function tvType(object) {
-        let brand = object.brand;
-        let type = object.type;
-        let name1 = object.name;
-        return brand + ', ' + type + ', ' + name1
-    }
-
-    const tvType2 = tvType(inventory[2]) + ' ' + tvType(inventory[4]);
-
 // Opdracht 1a: Hoeveel exemplaren moeten we nog verkopen? Schrijf een functie die dit berekent.
 
     let total = 0;
@@ -195,29 +179,34 @@ const inventory = [
 
 //Opdracht 2a: Gebruik een array-methode om een array te maken met alle tv-type namen.
 
-    let allTvTypes = [];
-    inventory.forEach(item => {
-        allTvTypes.push(item.type);
-    });
-    // console.log(allTvTypes);
+    // 2 ways of printing all tv types
+// way number 1
+
+let allTvTypes = [];
+inventory.forEach(item => {
+    allTvTypes.push(item.type);
+});
+
+// way number 2
+const allTvTypes1 = inventory.map(item => {
+    return item.type
+})
 
 //Opdracht 2b: Gebruik een array-methode om alle tv's te verzamelen (de hele objecten) die volledig uitverkocht zijn.
 
-    let soldOut = [];
-    inventory.forEach(item => {
-        if ((item.originalStock - item.sold) === 0) {
-            soldOut.push(item.type);
-        }
-    });
-// console.log(soldOut)
+   const soldOut = inventory.filter((item) => {
+    return item.originalStock === item.sold
+})
+ // console.log(soldOut)
 
 const soldOutTelevisions = (array) => {
     let soldOutTv = 'Deze televisies zijn helaas uitverkocht: <br><br>';
     for (let i = 0; i < array.length; i++) {
-        soldOutTv = soldOutTv + '-' + array[i] + '<br><br>';
+        soldOutTv = soldOutTv + '-' + array[i].name + ': ' + array[i].type + '<br><br>';
     }
     return soldOutTv
 }
+
 //Opdracht 2c: Gebruik een array-methode om alle tv's te verzamelen (de hele objecten) die over AmbiLight beschikken.
 
 
@@ -316,12 +305,12 @@ const soldOutTelevisions = (array) => {
 // daar de volgende string van maakt: €379,-. Zorg ervoor dat je deze functie
 // voor iedere tv zou kunnen gebruiken.
 
-        function tvPrice(inventory) {
-            let price = inventory.price;
-            return price
-        }
+       function tvPrice(priceNumber) {
+    let price = '€' + priceNumber + ",-";
+    return price
+}
 
-        let tvPrice1 = ('€') + tvPrice(inventory[3]) + (",-");
+// console.log(tvPrice(inventory[2].price))
 
 
 //Opdracht 5c: Zorg ervoor dat er een string wordt gegenereerd voor alle beschikbare
@@ -485,3 +474,5 @@ const chooseSize7 = availableSizes(inventory, 7);
 const chooseSizeHtml7 = document.getElementById('tvSizeSelect7')
 for(let i = 0; i < chooseSize7.length; i++){
     chooseSizeHtml7.options.add(new Option(chooseSize7[i])); }
+
+//verandering voor pull request
