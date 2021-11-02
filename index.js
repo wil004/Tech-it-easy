@@ -549,3 +549,5 @@ const chooseSize7 = availableSizes(inventory, 7);
 const chooseSizeHtml7 = document.getElementById('tvSizeSelect7')
 for(let i = 0; i < chooseSize7.length; i++){
     chooseSizeHtml7.options.add(new Option(chooseSize7[i])); }
+
+//pullrequest
