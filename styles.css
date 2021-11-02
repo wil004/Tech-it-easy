@@ -23,6 +23,10 @@
     background-color: yellow;
 }
 
+.tvSales p {
+    font-weight: bold;
+}
+
 .revenue {
     margin-right: 50px;
     border: 1px solid blue;
@@ -36,6 +40,27 @@
     color: blue;
 }
 
+/* opdracht 2b */
+#tvSold {
+    color: green;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* opdracht 2d */
+
+#tvBuyIn {
+    color: blue;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* opdracht 2e */
+#tvStock {
+    color: red;
+    font-size: 24px;
+    font-weight: bold;
+}
 
 #soldValue {
     color: green;
